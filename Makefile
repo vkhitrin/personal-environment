@@ -12,6 +12,7 @@ else
 		endif
 	endif
 	ifeq ($(UNAME_S),Darwin)
-		DISTRO_ID := "macOS"
+		DISTRO_ID := macOS
+		include os/darwin/$(DISTRO_ID)/Makefile
 	endif
 endif
