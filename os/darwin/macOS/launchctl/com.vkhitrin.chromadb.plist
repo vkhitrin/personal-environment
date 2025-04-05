@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>KeepAlive</key>
+        <true />
+        <key>Label</key>
+        <string>com.vkhitrin.chromadb</string>
+        <key>LimitLoadToSessionType</key>
+        <array>
+            <string>Aqua</string>
+            <string>Background</string>
+            <string>LoginWindow</string>
+            <string>StandardIO</string>
+            <string>System</string>
+        </array>
+        <key>ProgramArguments</key>
+        <array>
+            <string>$HOME/.local/bin/chroma</string>
+            <string>run</string>
+            <string>--host</string>
+            <string>127.0.0.1</string>
+            <string>--port</string>
+            <string>8000</string>
+            <string>--path</string>
+            <string>$HOME/.local/state/chroma/data</string>
+            <string>--log-path</string>
+            <string>$HOME/.local/state/chroma/log/chroma.log</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true />
+        <key>StandardErrorPath</key>
+        <string>$HOME/.local/state/chroma/log/chroma.log</string>
+        <key>StandardOutPath</key>
+        <string>$HOME/.local/state/chroma/log/chroma.log</string>
+    </dict>
+</plist>
