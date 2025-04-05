@@ -1,0 +1,13 @@
+pkgbase = cosmic-session
+	pkgdesc = Manipulate INI files from the command line
+	pkgver = 1.0.0
+    pkgrel = 1
+	url = https://github.com/dbohdan/initool
+	arch = x86_64
+	groups = cosmic
+	license = GPL-3.0-only
+	makedepends = make
+	makedepends = git
+	depends = mlton
+	source = git+https://github.com/dbohdan/initool#tag=9dc7574870c3f8799cad7878c423234c560666ec
+pkgname = initool

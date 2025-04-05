@@ -1,0 +1,33 @@
+pkgname=perl-ansicolumn
+pkgver=1.45
+pkgrel=0
+pkgdesc="ANSI sequence aware column command"
+arch=('x86_64')
+url="https://github.com/tecolicom/App-ansicolumn"
+license=('GPL')
+depends=('perl' 'cpanminus')
+makedepends=('perl' 'cpanminus')
+options=('!emptydirs' 'purge')
+source=("https://cpan.metacpan.org/authors/id/U/UT/UTASHIRO/App-ansicolumn-$pkgver.tar.gz")
+sha256sums=('23d5c91f0b00c5b277251f5e49106771d8663d801592768f1538eb7489cd3545')
+
+prepare() {
+    cd "$srcdir"
+    tar -xvf "App-ansicolumn-$pkgver.tar.gz"
+    cd "App-ansicolumn-$pkgver"
+}
+
+build() {
+    cd "$srcdir/App-ansicolumn-$pkgver"
+    # Install dependencies (if any) using cpanm (CPAN Minus)
+    cpanm --sudo .
+}
+#
+package() {
+    echo "Installed, but probably should be separate from 'perl_site' in the future."
+}
+
+# package() {
+#   sudo install -Dm755 "$srcdir/$pkgname/dist/usr/local/bin/$pkgname" "/usr/bin/$pkgname"
+#   sudo install -Dm644 "$srcdir/$pkgname/LICENSE" "/usr/share/licenses/$pkgname/LICENSE"
+# }

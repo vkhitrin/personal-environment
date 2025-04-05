@@ -1,0 +1,23 @@
+pkgname=kubesess
+pkgver=2.0.2
+pkgrel=1
+pkgdesc='Kubectl plugin managing sessions'
+arch=(x86_64)
+url=https://github.com/dbohdan/initool
+license=(MIT)
+makedepends=(
+    git
+)
+_tag=9dc7574870c3f8799cad7878c423234c560666ec
+source=(
+    https://github.com/Ramilito/${pkgname}/releases/download/${pkgver}/${pkgname}_${pkgver}_${arch}-unknown-linux-gnu.tar.gz
+)
+sha256sums=('SKIP')
+
+build() {
+    echo ""
+}
+
+package() {
+    sudo install -Dm755 "${srcdir}/target/${arch}-unknown-linux-gnu/release/${pkgname}" "/usr/bin/$pkgname"
+}
