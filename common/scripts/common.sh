@@ -13,9 +13,3 @@ function print_padded_title {
     padding="$(printf '%0.1s' ={1..500})"
     printf '%*.*s %s %*.*s\n' 0 "$(((termwidth - 2 - ${#1}) / 2))" "$padding" "$1" 0 "$(((termwidth - 1 - ${#1}) / 2))" "$padding"
 }
-
-# Make sure script isn't executed on non Linux systems
-print_padded_title "Linux Check"
-if [[ $(uname) != "Linux" ]]; then
-    error_exit "Please make sure you're running on Linux"
-fi

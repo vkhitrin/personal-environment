@@ -4,6 +4,7 @@
 MAKEFILE_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 export BASE_DIR = $(MAKEFILE_DIR)
 export BIN_DIR = $(shell brew --prefix)/bin
+export ZSH_COMPLETIONS = $(shell brew --prefix)/share/zsh-completions
 
 help:
 	@fgrep -h "##" $(MAKEFILE_LIST) | sed -e 's/\(\:.*\#\#\)/\:\ /' | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
@@ -44,4 +45,4 @@ create-utm-ubuntu-linux-vm: ##Creates Arch Linux virtual machine in UTM
 dump-brew-packages: ##Dumps brew/mas packages into Brewfile
 	@$(MAKEFILE_DIR)/scripts/99-dump-brew-packages.sh > ./Brewfile
 
-boostrap-macos-environment: create-directories install-brew-packages fetch-dotfiles restore-config private-customizations customize-jupyter-env customize-apple-virtualization-configuration ##Bootstraps the macOS environment 
+boostrap-macos-environment: create-directories install-brew-packages common-install-python-packages common-install-npm-packages common-install-tmux-tpm common-install-k8s-plugins common-install-gh-extensions common-configure-mise common-catppuccin-theme fetch-dotfiles restore-config private-customizations customize-jupyter-env customize-apple-virtualization-configuration ##Bootstraps the macOS environment 

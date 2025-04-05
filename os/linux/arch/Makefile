@@ -4,6 +4,7 @@
 MAKEFILE_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 export BASE_DIR = $(MAKEFILE_DIR)
 export BIN_DIR = /usr/bin
+export ZSH_COMPLETIONS = /usr/share/zsh-completions
 
 help:
 	@grep -F -h "##" $(MAKEFILE_LIST) | sed -e 's/\(\:.*\#\#\)/\:\ /' | grep -F -v grep -F | sed -e 's/\\$$//' | sed -e 's/##//'
@@ -23,4 +24,4 @@ restore-config: #Restores config
 dump-packages: ##Dumps pacman packages into a file
 	@$(MAKEFILE_DIR)/scripts/99-dump-packages.sh
 
-bootstrap-arch-linux-environment: create-directories install-packages fetch-dotfiles restore-config ##Bootstraps the arch linux environment
+bootstrap-arch-linux-environment: create-directories install-packages common-install-python-packages common-install-npm-packages common-install-tmux-tpm common-install-k8s-plugins common-install-gh-extensions common-configure-mise common-catppuccin-theme fetch-dotfiles restore-config ##Bootstraps the arch linux environment

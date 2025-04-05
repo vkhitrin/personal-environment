@@ -6,7 +6,7 @@ set -eo pipefail
 source ./scripts/common.sh
 
 # Ensure iCloud is enabled on system
-/usr/libexec/PlistBuddy -c "print :Accounts:0:Services:" ~/Library/Preferences/MobileMeAccounts.plist | grep MOBILE_DOCUMENTS -A3 -B3 | grep 'authMechanism = token' > /dev/null 2>/dev/null || error_exit "iCloud is not enabled on the system"
+/usr/libexec/PlistBuddy -c "print :Accounts:0:Services:" "${HOME}/Library/Preferences/MobileMeAccounts.plist" | grep 'authMechanism = token' > /dev/null 2>/dev/null || error_exit "iCloud is not enabled on the system"a
 
 print_padded_title "Configuration - restore mackup backups"
 cp -f .mackup.cfg "${HOME}/"

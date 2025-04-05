@@ -12,4 +12,4 @@ brew bundle dump --all --force
       read -r name_line
       name=${name_line#*= }
       echo "mas $name, id: $id"
-done | /usr/bin/sort >> Brewfile
+done | /usr/bin/sort >> Brewfile.mas
