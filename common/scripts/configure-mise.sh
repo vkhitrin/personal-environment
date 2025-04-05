@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-[ -n "${BASE_DIR}" ] && cd "${BASE_DIR}"
+[ -n "${COMMON_BASE_DIR}" ] && cd "${COMMON_BASE_DIR}"
 
 source ./scripts/common.sh
 

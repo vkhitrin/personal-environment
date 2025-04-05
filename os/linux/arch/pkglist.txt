@@ -144,6 +144,7 @@ ripgrep
 rsync
 ruby
 rust
+skopeo
 slurp
 snapshot
 speech-dispatcher

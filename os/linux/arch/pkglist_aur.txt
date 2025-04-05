@@ -36,6 +36,5 @@ vkbasalt-cli
 wine-ge-custom
 xinput-gui
 yay-bin
-zen-browser-bin
 zsh-autopair-git
 zsh-fast-syntax-highlighting
