@@ -20,7 +20,6 @@ bat
 bat-extras
 bind
 bluez-utils
-broadcom-wl
 chafa
 clang
 cosmic-app-library
@@ -76,6 +75,7 @@ hwloc
 ifuse
 imagemagick
 inetutils
+inotify-tools
 iwd
 jq
 jre-openjdk
@@ -109,6 +109,9 @@ minio-client
 mlton
 networkmanager
 nodejs
+noto-fonts-cjk
+noto-fonts-emoji
+noto-fonts-extra
 npm
 nvidia-open
 nvme-cli
