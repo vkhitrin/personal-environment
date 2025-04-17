@@ -7,8 +7,8 @@ source ./scripts/common.sh
 
 print_padded_title "iCloud - Check"
 [ -d "${HOME}/.iCloudDrive" ] || error_exit "iCloud symlink doesn't exist"
-[ -d "${HOME}/.iCloudDrive/Operating Systems/macOS/Scripts" ] || error_exit "Scripts directory doesn't exist in iCloud"
+[ -d "${HOME}/.iCloudDrive/OperatingSystems/macOS/Scripts" ] || error_exit "Scripts directory doesn't exist in iCloud"
 
 print_padded_title "iCloud - Execute Private Script"
-[ -f "${HOME}/.iCloudDrive/Operating Systems/macOS/Scripts/install-private-customizations.sh" ] || error_exit "Private script doesn't exist"
-"${HOME}/.iCloudDrive/Operating Systems/macOS/Scripts/install-private-customizations.sh"
+[ -f "${HOME}/.iCloudDrive/OperatingSystems/macOS/Scripts/install-private-customizations.sh" ] || error_exit "Private script doesn't exist"
+"${HOME}/.iCloudDrive/OperatingSystems/macOS/Scripts/install-private-customizations.sh"
