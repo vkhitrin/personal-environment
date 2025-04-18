@@ -52,6 +52,7 @@ dosfstools
 efibootmgr
 evolution-data-server
 evtest
+flatpak-builder
 fwupd
 fzf
 git
@@ -157,6 +158,7 @@ strace
 terminus-font
 tk
 tmux
+todoman
 transmission-gtk
 tree
 tree-sitter-cli
@@ -169,6 +171,7 @@ upower
 usage
 usbmuxd
 usbutils
+vdirsyncer
 vulkan-intel
 vulkan-tools
 wf-recorder
