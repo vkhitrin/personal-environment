@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>com.vkhitrin.vdirsyncer</string>
+        <key>LimitLoadToSessionType</key>
+        <array>
+            <string>Aqua</string>
+            <string>Background</string>
+            <string>LoginWindow</string>
+            <string>StandardIO</string>
+            <string>System</string>
+        </array>
+        <key>ProgramArguments</key>
+        <array>
+            <string>/opt/homebrew/opt/vdirsyncer/bin/vdirsyncer</string>
+            <string>sync</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true />
+        <key>StandardErrorPath</key>
+        <string>$HOME/.local/state/vdirsyncer/log/vdirsyncer.log</string>
+        <key>StandardOutPath</key>
+        <string>$HOME/.local/state/vdirsyncer/log/vdirsyncer.log</string>
+        <key>StartInterval</key>
+        <integer>600</integer>
+        <key>WorkingDirectory</key>
+        <string>/opt/homebrew</string>
+        <key>WatchPaths</key>
+        <array>
+            <string>$HOME/.local/share/calendars</string>
+        </array>
+    </dict>
+</plist> 
