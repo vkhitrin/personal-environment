@@ -53,6 +53,7 @@ efibootmgr
 evolution-data-server
 evtest
 flatpak-builder
+fractal
 fwupd
 fzf
 git
