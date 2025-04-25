@@ -50,10 +50,8 @@ dkms
 dmidecode
 dosfstools
 efibootmgr
-evolution-data-server
 evtest
 flatpak-builder
-fractal
 fwupd
 fzf
 git
@@ -71,6 +69,7 @@ gst-plugin-pipewire
 gst-plugins-base
 gstreamer-vaapi
 guestfs-tools
+gum
 helm
 hugo
 hwloc

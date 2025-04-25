@@ -1,5 +1,5 @@
-tap "austinliuigi/brew-neovim-nightly", "https://github.com/austinliuigi/brew-neovim-nightly.git"
 tap "aws/tap"
+tap "benjiwolff/neovim-nightly"
 tap "buo/cask-upgrade"
 tap "catppuccin/tap"
 tap "cirruslabs/cli"
