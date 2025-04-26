@@ -54,11 +54,13 @@ evtest
 flatpak-builder
 fwupd
 fzf
+geary
 git
 git-delta
 git-lfs
 github-cli
 glab
+gnome-calendar
 gnome-keyring
 go
 go-yq
@@ -106,9 +108,11 @@ luarocks
 lutris
 man-db
 mangohud
+meson
 minio-client
 mlton
 networkmanager
+ninja
 nodejs
 noto-fonts-cjk
 noto-fonts-emoji
@@ -161,6 +165,7 @@ tmux
 todoman
 transmission-gtk
 tree
+tree-sitter
 tree-sitter-cli
 ttc-iosevka
 udftools

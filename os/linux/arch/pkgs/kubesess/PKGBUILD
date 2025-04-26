@@ -1,23 +1,23 @@
-pkgname=kubesess
+pkgname=kubesess-bin
 pkgver=2.0.2
 pkgrel=1
 pkgdesc='Kubectl plugin managing sessions'
-arch=(x86_64)
-url=https://github.com/dbohdan/initool
+arch=('x86_64' 'aarch64')
+url=https://github.com/Ramilito/kubesess
 license=(MIT)
 makedepends=(
     git
 )
-_tag=9dc7574870c3f8799cad7878c423234c560666ec
 source=(
-    https://github.com/Ramilito/${pkgname}/releases/download/${pkgver}/${pkgname}_${pkgver}_${arch}-unknown-linux-gnu.tar.gz
+    https://github.com/Ramilito/kubesess/releases/download/${pkgver}/kubesess_${pkgver}_${arch}-unknown-linux-gnu.tar.gz
 )
-sha256sums=('SKIP')
 
-build() {
-    echo ""
-}
+if [[ $CARCH == "x86_64" ]]; then
+    sha256sums=('81d29a76c4b02f4d5ec3aa448f5bbebaff0bc44b45adf570bfad9391a81cbc42')
+elif [[ $CARCH == "aarch64" ]]; then
+    sha256sums=('80362fd6ecc94fbf8d1f9679fa56241865b971dc4c9077c0cadedc91928d0f9fd')
+fi
 
 package() {
-    sudo install -Dm755 "${srcdir}/target/${arch}-unknown-linux-gnu/release/${pkgname}" "/usr/bin/$pkgname"
+    sudo install -Dm755 "${srcdir}/target/${arch}-unknown-linux-gnu/release/kubesess" "/usr/bin/kubesess"
 }

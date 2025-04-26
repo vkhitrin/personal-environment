@@ -17,17 +17,7 @@ prepare() {
     cd "App-ansicolumn-$pkgver"
 }
 
-build() {
+package() {
     cd "$srcdir/App-ansicolumn-$pkgver"
-    # Install dependencies (if any) using cpanm (CPAN Minus)
     cpanm --sudo .
 }
-#
-package() {
-    echo "Installed, but probably should be separate from 'perl_site' in the future."
-}
-
-# package() {
-#   sudo install -Dm755 "$srcdir/$pkgname/dist/usr/local/bin/$pkgname" "/usr/bin/$pkgname"
-#   sudo install -Dm644 "$srcdir/$pkgname/LICENSE" "/usr/share/licenses/$pkgname/LICENSE"
-# }

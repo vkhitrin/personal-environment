@@ -3,7 +3,6 @@ apple-fonts
 apple-sf-script-extension-fonts
 aws-cli-v2
 aws-cli-v2-python-awscrt
-betterbird-bin
 bottles
 butler
 downgrade
@@ -11,14 +10,19 @@ flux-bin
 gamescope-nvidia
 git-open
 gitlab-ci-local
+gnome-icon-theme
+gnome-icon-theme-symbolic
+gnome-online-accounts-gtk
 icoextract
+initool-git
 kubecolor
-kubesess
+kubesess-bin
 mackup
 mise-bin
 neovim-nightly-bin
 nerd-fonts-sf-mono
 patool
+perl-ansicolumn
 pet-bin
 proton-ge-custom-bin
 python-docopt-ng
@@ -31,7 +35,6 @@ remote-desktop-manager
 sideloader-bin
 sublime-merge
 thorium-browser-bin
-updpkgsrcs
 vesktop-bin
 vial-appimage
 vkbasalt-cli
