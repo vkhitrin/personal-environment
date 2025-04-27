@@ -39,11 +39,6 @@ brew upgrade --fetch-HEAD
 # print_padded_title "Brew - Start Services"
 # brew services start borders
 
-print_padded_title "Brew - Workarounds"
-brew reinstall neovim-nightly
-xattr -d com.apple.quarantine /opt/homebrew/bin/clickhouse 2>/dev/null || true
-# which podman >/dev/null 2>&1 && ln -sf /opt/homebrew/bin/podman "${HOME}/.local/bin/docker"
-
 # Soft links
 print_padded_title "Brew - Soft Links"
 ln -sf /opt/homebrew/bin/yt-dlp /opt/homebrew/bin/youtube-dl

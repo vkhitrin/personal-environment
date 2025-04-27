@@ -12,11 +12,6 @@
 
 ### macOS
 
-#### Worarounds
-
-- <https://github.com/mas-cli/mas/issues/724>
-  To install applications from the App Store, set `BREW_WORKAROUND_INSTALL_MAS` environment variable.
-
 #### Installation
 
 ```bash

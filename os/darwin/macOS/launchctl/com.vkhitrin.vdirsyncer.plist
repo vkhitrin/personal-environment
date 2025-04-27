@@ -24,7 +24,7 @@
         <key>StandardOutPath</key>
         <string>$HOME/.local/state/vdirsyncer/log/vdirsyncer.log</string>
         <key>StartInterval</key>
-        <integer>600</integer>
+        <integer>60</integer>
         <key>WorkingDirectory</key>
         <string>/opt/homebrew</string>
         <key>WatchPaths</key>
