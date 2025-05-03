@@ -7,5 +7,5 @@ source ./scripts/common.sh
 
 [ -z "${BIN_DIR}" ] && error_exit "Environment variable 'BIN_DIR' is not defined"
 
-print_padded_title "Brew npm - Install Additional Software"
+print_padded_title "npm - Install Additional Software"
 "${BIN_DIR}/npm" install --global --upgrade hostile @mermaid-js/mermaid-cli

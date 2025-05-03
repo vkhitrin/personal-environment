@@ -45,15 +45,18 @@ cosmic-text-editor
 cosmic-wallpapers
 cosmic-workspaces
 ctags
+cuda
 ddcutil
 dkms
 dmidecode
 dosfstools
 efibootmgr
 evtest
+flameshot
 flatpak-builder
 fwupd
 fzf
+gcc14
 geary
 git
 git-delta
@@ -78,6 +81,7 @@ hwloc
 ifuse
 imagemagick
 inetutils
+inkscape
 inotify-tools
 iwd
 jq
@@ -111,6 +115,8 @@ mangohud
 meson
 minio-client
 mlton
+namcap
+neovim
 networkmanager
 ninja
 nodejs
@@ -142,6 +148,7 @@ pulseaudio-alsa
 python-pip
 python-pyqt5
 python-pyqt5-webengine
+python-tinycss2
 python-uv
 qemu-base
 qmk
@@ -151,7 +158,9 @@ reflector
 ripgrep
 rsync
 ruby
-rust
+rustup
+scdoc
+share-preview
 skopeo
 slurp
 snapshot
@@ -159,6 +168,7 @@ speech-dispatcher
 starship
 steam-native-runtime
 strace
+tcpdump
 terminus-font
 tk
 tmux
@@ -184,7 +194,9 @@ wget
 wireplumber
 wl-clipboard
 xdg-desktop-portal-cosmic
+xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
+xdg-desktop-portal-xapp
 xfsprogs
 yt-dlp
 zenity
