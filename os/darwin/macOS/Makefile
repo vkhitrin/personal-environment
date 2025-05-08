@@ -51,4 +51,4 @@ create-utm-ubuntu-linux-vm: ##Creates Arch Linux virtual machine in UTM
 dump-brew-packages: ##Dumps brew/mas packages into Brewfile
 	@$(MAKEFILE_DIR)/scripts/99-dump-brew-packages.sh > ./Brewfile
 
-boostrap-macos-environment: create-directories install-brew-packages install-dev-tools common-install-python-packages common-install-npm-packages common-install-tmux-tpm common-install-k8s-plugins common-install-gh-extensions common-configure-mise common-catppuccin-theme fetch-dotfiles restore-config private-customizations install-launchagents customize-jupyter-env customize-apple-virtualization-configuration ##Bootstraps the macOS environment 
+boostrap-macos-environment: create-directories install-brew-packages install-dev-tools common-install-python-packages common-install-npm-packages common-install-cargo-packages common-install-tmux-tpm common-install-k8s-plugins common-install-gh-extensions common-configure-mise common-catppuccin-theme fetch-dotfiles restore-config private-customizations install-launchagents customize-jupyter-env customize-apple-virtualization-configuration ##Bootstraps the macOS environment 

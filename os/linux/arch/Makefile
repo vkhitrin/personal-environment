@@ -26,4 +26,4 @@ private-customizations: ##Private customizations
 dump-packages: ##Dumps pacman packages into a file
 	@$(MAKEFILE_DIR)/scripts/99-dump-packages.sh
 
-bootstrap-arch-linux-environment: create-directories install-packages common-install-python-packages common-install-tmux-tpm common-install-k8s-plugins common-install-gh-extensions common-configure-mise common-catppuccin-theme fetch-dotfiles restore-config private-customizations ##Bootstraps the arch linux environment
+bootstrap-arch-linux-environment: create-directories install-packages common-install-python-packages common-install-cargo-packages common-install-tmux-tpm common-install-k8s-plugins common-install-gh-extensions common-configure-mise common-catppuccin-theme fetch-dotfiles restore-config private-customizations ##Bootstraps the arch linux environment

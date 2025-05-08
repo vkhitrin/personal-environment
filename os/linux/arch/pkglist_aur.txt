@@ -16,7 +16,6 @@ initool-git
 kubecolor
 kubesess-bin
 mackup
-mise-bin
 nerd-fonts-sf-mono
 perl-ansicolumn
 pet-bin

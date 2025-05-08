@@ -1,4 +1,5 @@
 com.jeffser.Alpaca
+com.usebottles.bottles
 de.schmidhuberj.tubefeeder
 it.mijorus.gearlever
 org.flatpak.Builder
