@@ -1,7 +1,7 @@
 com.jeffser.Alpaca
-com.usebottles.bottles
 de.schmidhuberj.tubefeeder
 it.mijorus.gearlever
 org.flatpak.Builder
 org.gnome.design.AppIconPreview
 org.gnome.design.Emblem
+org.gnome.seahorse.Application

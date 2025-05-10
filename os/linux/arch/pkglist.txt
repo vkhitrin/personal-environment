@@ -47,6 +47,7 @@ cosmic-workspaces
 ctags
 cuda
 ddcutil
+discord
 dkms
 dmidecode
 dosfstools

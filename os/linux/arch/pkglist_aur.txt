@@ -17,6 +17,7 @@ kubecolor
 kubesess-bin
 mackup
 nerd-fonts-sf-mono
+obsidian-cli-git
 perl-ansicolumn
 pet-bin
 proton-ge-custom-bin
