@@ -1,4 +1,4 @@
-DISTRO_ID := "test"
+DISTRO_ID := "placeholder"
 ifeq ($(OS),Windows_NT)
 	$(error "Windows is not supported.")
 else
