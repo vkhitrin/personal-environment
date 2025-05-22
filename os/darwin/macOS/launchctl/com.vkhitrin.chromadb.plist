@@ -24,8 +24,6 @@
             <string>8000</string>
             <string>--path</string>
             <string>$HOME/.local/state/chroma/data</string>
-            <string>--log-path</string>
-            <string>$HOME/.local/state/chroma/log/chroma.log</string>
         </array>
         <key>RunAtLoad</key>
         <true />

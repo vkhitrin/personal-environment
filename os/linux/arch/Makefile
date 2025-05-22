@@ -1,5 +1,5 @@
 .DEFAULT: help
-.PHONY: bootstrap-arch-linux-environment create-directories install-packages common-install-python-packages common-install-tmux-tpm common-install-k8s-plugins common-install-gh-extensions common-configure-mise common-catppuccin-theme fetch-dotfiles restore-config private-customizations ##Bootstraps the arch linux environment
+.PHONY: bootstrap-arch-linux-environment create-directories install-packages common-install-python-packages common-install-tmux-tpm common-install-k8s-plugins common-install-gh-extensions common-configure-mise common-catppuccin-theme fetch-dotfiles restore-config private-customizations
 MAKEFILE_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 export BASE_DIR = $(MAKEFILE_DIR)
 export BIN_DIR = /usr/bin
