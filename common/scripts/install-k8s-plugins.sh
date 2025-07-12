@@ -16,10 +16,16 @@ fi
 # helm plugins
 print_padded_title "helm - Install Helm Plugins"
 if [[ $(which helm) ]] 2>/dev/null; then
-    "${BIN_DIR}/helm" plugin list | grep diff >/dev/null 2>/dev/null || helm plugin install https://github.com/databus23/helm-diff
+    "${BIN_DIR}/helm" plugin list | grep diff >/dev/null 2>/dev/null || "${BIN_DIR}/helm" plugin install https://github.com/databus23/helm-diff
     "${BIN_DIR}/helm" diff completion zsh | sudo tee "${ZSH_COMPLETIONS}/_helm_diff"
-    "${BIN_DIR}/helm" plugin list | grep cm-push >/dev/null 2>/dev/null || helm plugin install https://github.com/chartmuseum/helm-push
-    "${BIN_DIR}/helm" plugin list | grep drift >/dev/null 2>/dev/null || helm plugin install https://github.com/nikhilsbhat/helm-drift
+    "${BIN_DIR}/helm" plugin list | grep cm-push >/dev/null 2>/dev/null || "${BIN_DIR}/helm" plugin install https://github.com/chartmuseum/helm-push
+    "${BIN_DIR}/helm" plugin list | grep drift >/dev/null 2>/dev/null || "${BIN_DIR}/helm" plugin install https://github.com/nikhilsbhat/helm-drift
     "${BIN_DIR}/helm" drift completion zsh | sudo tee "${ZSH_COMPLETIONS}/_helm_drift"
-    "${BIN_DIR}/helm" plugin list | grep schema >/dev/null 2>/dev/null || helm plugin install https://github.com/losisin/helm-values-schema-json.git
+    "${BIN_DIR}/helm" plugin list | grep schema >/dev/null 2>/dev/null || "${BIN_DIR}/helm" plugin install https://github.com/losisin/helm-values-schema-json.git
+    "${BIN_DIR}/helm" plugin list | grep unittest >/dev/null 2>/dev/null || "${BIN_DIR}/helm" plugin install https://github.com/helm-unittest/helm-unittest
+    "${BIN_DIR}/helm" plugin update diff
+    "${BIN_DIR}/helm" plugin update cm-push
+    "${BIN_DIR}/helm" plugin update drift
+    "${BIN_DIR}/helm" plugin update schema
+    "${BIN_DIR}/helm" plugin update unittest
 fi

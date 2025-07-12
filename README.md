@@ -15,7 +15,7 @@
 #### Installation
 
 ```bash
-make boostrap-macos-environment
+make bootstrap-macos-environment
 ```
 
 ### Arch Linux
@@ -23,5 +23,5 @@ make boostrap-macos-environment
 #### Installation
 
 ```bash
-make boostrap-arch-linux-environment
+make bootstrap-arch-linux-environment
 ```

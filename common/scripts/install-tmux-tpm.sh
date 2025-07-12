@@ -11,4 +11,5 @@ print_padded_title "tmux - Install Plugin Manager 'tpm'"
 
 # Install tmux plugins
 print_padded_title "tmux - Install Plugins"
+export TMUX_PLUGIN_MANAGER_PATH="${HOME}/.tmux/plugins/"
 "${HOME}/.tmux/plugins/tpm/scripts/install_plugins.sh"

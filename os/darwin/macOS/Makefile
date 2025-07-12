@@ -1,5 +1,5 @@
 .DEFAULT: help
-.PHONY: create-directories set-defaults install-brew-packages install-dev-tools fetch-dotfiles restore-config private-customizations install-launchagents customize-jupyter-env customize-apple-virtualization-configuration populate-utm-virtualmachines-in-hosts create-utm-arch-linux-vm create-utm-ubuntu-linux-vm dump-brew-packages boostrap-macos-environment
+.PHONY: create-directories set-defaults install-brew-packages install-dev-tools fetch-dotfiles restore-config private-customizations install-launchagents customize-jupyter-env customize-apple-virtualization-configuration populate-utm-virtualmachines-in-hosts create-utm-arch-linux-vm create-utm-ubuntu-linux-vm dump-brew-packages bootstrap-macos-environment
 
 MAKEFILE_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 export BASE_DIR = $(MAKEFILE_DIR)
@@ -51,4 +51,4 @@ create-utm-ubuntu-linux-vm: ##Creates Arch Linux virtual machine in UTM
 dump-brew-packages: ##Dumps brew/mas packages into Brewfile
 	@$(MAKEFILE_DIR)/scripts/99-dump-brew-packages.sh > ./Brewfile
 
-boostrap-macos-environment: create-directories install-brew-packages install-dev-tools common-install-python-packages common-install-npm-packages common-install-cargo-packages common-install-tmux-tpm common-install-k8s-plugins common-install-gh-extensions common-configure-mise common-catppuccin-theme fetch-dotfiles restore-config private-customizations install-launchagents customize-jupyter-env customize-apple-virtualization-configuration ##Bootstraps the macOS environment 
+bootstrap-macos-environment: create-directories install-brew-packages install-dev-tools set-defaults common-install-python-packages common-install-npm-packages common-install-cargo-packages common-install-tmux-tpm common-install-k8s-plugins common-install-gh-extensions common-configure-mise common-catppuccin-theme fetch-dotfiles restore-config private-customizations install-launchagents customize-jupyter-env customize-apple-virtualization-configuration ##Bootstraps the macOS environment 
