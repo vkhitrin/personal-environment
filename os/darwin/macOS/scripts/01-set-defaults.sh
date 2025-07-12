@@ -31,27 +31,6 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 defaults write com.apple.Accessibility KeyRepeatDelay "0.25"
 defaults write com.apple.Accessibility KeyRepeatEnabled 1
 defaults write com.apple.Accessibility KeyRepeatInterval "0.03333333299999999"
-defaults write com.apple.Safari AutoFillCreditCardData -bool false
-defaults write com.apple.Safari AutoFillFromAddressBook -bool false
-defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
-defaults write com.apple.Safari AutoFillPasswords -bool false
-defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
-defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
-defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
-defaults write com.apple.Safari ProxiesInBookmarksBar "()"
-defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
-defaults write com.apple.Safari ShowFavoritesBar -bool false
-defaults write com.apple.Safari ShowSidebarInTopSites -bool false
-defaults write com.apple.Safari SuppressSearchSuggestions -bool true
-defaults write com.apple.Safari UniversalSearchEnabled -bool false
-defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false
-defaults write com.apple.Safari WebContinuousSpellCheckingEnabled -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
 defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 defaults write com.apple.Terminal ShowLineMarks -int 0
@@ -80,7 +59,6 @@ defaults write com.apple.menuextra.clock "Show24Hour" -bool "true"
 defaults write com.apple.menuextra.clock "ShowDate" -bool "true"
 defaults write com.apple.menuextra.clock "ShowDayOfWeek" -bool "true"
 defaults write com.apple.menuextra.clock "ShowSeconds" -bool "true"
-defaults write com.apple.safari "ShowFullURLInSmartSearchField" -bool "true"
 defaults write com.apple.screencapture "include-date" 0
 defaults write com.apple.screencapture disable-shadow -bool true
 defaults write com.apple.screencapture location "$HOME/Documents/Screenshots"
@@ -88,10 +66,36 @@ defaults write com.apple.screencapture name "screencapture"
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
+# NOTE: Safari defaults did not work on clean install of macOS Sequoia
+# defaults write com.apple.Safari AutoFillCreditCardData -bool false
+# defaults write com.apple.Safari AutoFillFromAddressBook -bool false
+# defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
+# defaults write com.apple.Safari AutoFillPasswords -bool false
+# defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
+# defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
+# defaults write com.apple.Safari IncludeDevelopMenu -bool true
+# defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+# defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
+# defaults write com.apple.Safari ProxiesInBookmarksBar "()"
+# defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
+# defaults write com.apple.Safari ShowFavoritesBar -bool false
+# defaults write com.apple.Safari ShowSidebarInTopSites -bool false
+# defaults write com.apple.Safari SuppressSearchSuggestions -bool true
+# defaults write com.apple.Safari UniversalSearchEnabled -bool false
+# defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false
+# defaults write com.apple.Safari WebContinuousSpellCheckingEnabled -bool true
+# defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+# defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true
+# defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+# defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
+# defaults write com.apple.safari "ShowFullURLInSmartSearchField" -bool "true"
+
 # Install macOS defaults
 print_padded_title "defaults - Configure Custom Keybindings"
 # Command + Shift + 0 to open menu entry `Show Writing Tools`
 defaults write -g NSUserKeyEquivalents -dict-add "Show Writing Tools" '@$0'
+# Command +X to launch kitty's quick access terminal
+defaults write pbs NSServicesStatus -dict-add "net.kovidgoyal.kitty-quick-access - Quick access to kitty - quickAccessTerminal" '{"key_equivalent" = "@$x";}'
 
 print_padded_title "defaults - Kill applications"
 killall -q SystemUIServer || true

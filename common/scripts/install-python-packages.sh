@@ -10,7 +10,7 @@ source ./scripts/common.sh
 print_padded_title "uv - Install Additional Software"
 declare -a UV_PACKAGES
 declare -a UV_HARLEQUIN_EXTRA_ARGS
-UV_PACKAGES=("passhole" "chromadb" "vectorcode[lsp,mcp]" "posting")
+UV_PACKAGES=("passhole" "chromadb==0.6.3" "vectorcode[lsp,mcp]" "posting")
 UV_HARLEQUIN_EXTRA_ARGS=("--with boto3" "--with harlequin-postgres" "--with harlequin-mysql" "--with harlequin-odbc")
 for UV_PACKAGE in "${UV_PACKAGES[@]}"; do
     "${BIN_DIR}/uv" tool install -U "${UV_PACKAGE}"
