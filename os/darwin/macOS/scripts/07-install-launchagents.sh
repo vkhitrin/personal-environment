@@ -12,10 +12,18 @@ eval "echo \"$(cat ./launchctl/com.vkhitrin.chromadb.plist)\"" > "${HOME}/Librar
 launchctl unload "${HOME}/Library/LaunchAgents/com.vkhitrin.chromadb.plist"
 launchctl bootstrap "gui/${UID}" "${HOME}/Library/LaunchAgents/com.vkhitrin.chromadb.plist"
 
-# NOTE: 'metadatasync' is not automated, this has to be done manually
+# NOTE: 'vdirsyncer metasync' and `vidrsyncer sync are not automated, this has to be done manually
 print_padded_title "LaunchAgent - vdirsyncer"
 [ -f "./launchctl/com.vkhitrin.vdirsyncer.plist" ] || error_exit "plist doesn't exist"
 mkdir -p "${HOME}/.local/state/vdirsyncer/log"
 eval "echo \"$(cat ./launchctl/com.vkhitrin.vdirsyncer.plist)\"" > "${HOME}/Library/LaunchAgents/com.vkhitrin.vdirsyncer.plist"
 launchctl unload "${HOME}/Library/LaunchAgents/com.vkhitrin.vdirsyncer.plist"
 launchctl bootstrap "gui/${UID}" "${HOME}/Library/LaunchAgents/com.vkhitrin.vdirsyncer.plist"
+
+# # NOTE: 'vdirsyncer metasync' and `vidrsyncer sync are not automated, this has to be done manually
+# print_padded_title "LaunchAgent - com.apple.container"
+# [ -f "./launchctl/com.vkhitrin.vdirsyncer.plist" ] || error_exit "plist doesn't exist"
+# mkdir -p "${HOME}/.local/state/vdirsyncer/log"
+# eval "echo \"$(cat ./launchctl/com.vkhitrin.vdirsyncer.plist)\"" > "${HOME}/Library/LaunchAgents/com.vkhitrin.vdirsyncer.plist"
+# launchctl unload "${HOME}/Library/LaunchAgents/com.vkhitrin.vdirsyncer.plist"
+# launchctl bootstrap "gui/${UID}" "${HOME}/Library/LaunchAgents/com.vkhitrin.vdirsyncer.plist"

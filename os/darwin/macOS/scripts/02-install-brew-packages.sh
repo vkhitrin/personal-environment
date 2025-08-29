@@ -8,15 +8,15 @@ source ./scripts/common.sh
 # Verify brew is installed
 which brew >/dev/null 2>/dev/null || error_exit "Brew is not installed, please download from https://brew.sh/"
 # Verify podman is installed
-which podman >/dev/null 2>/dev/null || error_exit "podman is not installed, please install from brew."
+# which podman >/dev/null 2>/dev/null || error_exit "podman is not installed, please install from brew."
 
 # We use podman to build SF Mono patched fonts
-print_padded_title "macos - Ensure Podman Machine Is Running (Only If Needed)"
-if [[ ! -d "/opt/homebrew/Caskroom/font-sf-mono-nerd-font" && -z "${SKIP_PODMAN_CHECK}" ]]; then
-    if [[ $(podman machine info --format '{{ .Host.MachineState }}') != "Running" ]]; then
-        error_exit "Please ensure local podman machine is running, or skip check using SKIP_PODMAN_CHECK environment variable."
-    fi
-fi
+# print_padded_title "macos - Ensure Podman Machine Is Running (Only If Needed)"
+# if [[ ! -d "/opt/homebrew/Caskroom/font-sf-mono-nerd-font" && -z "${SKIP_PODMAN_CHECK}" ]]; then
+#     if [[ $(podman machine info --format '{{ .Host.MachineState }}') != "Running" ]]; then
+#         error_exit "Please ensure local podman machine is running, or skip check using SKIP_PODMAN_CHECK environment variable."
+#     fi
+# fi
 
 # Disable brew analytics
 print_padded_title "Brew - Disable Analytics"
@@ -29,8 +29,6 @@ brew update
 print_padded_title "Brew - Install Packages"
 [ -f Brewfile ] || error_exit "No Brewfile is found"
 brew bundle --quiet --file=Brewfile
-# NOTE: Workaround https://github.com/mas-cli/mas/issues/724
-[ -n "${BREW_WORKAROUND_INSTALL_MAS}" ] && brew bundle --quiet --file=Brewfile.mas
 
 print_padded_title "Brew - Upgrade HEAD Formulae"
 brew outdated --fetch-HEAD

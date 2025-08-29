@@ -42,6 +42,9 @@ customize-apple-virtualization-configuration: ##Configures Apple Virtualization 
 populate-utm-virtualmachines-in-hosts: ##Populate UTM virtual machines in /etc/hosts
 	@$(MAKEFILE_DIR)/scripts/10-populate-utm-virtualmachines-in-hosts.sh
 
+build-apple-container: ##Builds macOS Apple container
+	@$(MAKEFILE_DIR)/scripts/11-build-apple-conntainer-from-source.sh
+
 create-utm-arch-linux-vm: ##Creates Arch Linux virtual machine in UTM
 	@$(MAKEFILE_DIR)/scripts/30-create-utm-arch-linux-vm.sh
 

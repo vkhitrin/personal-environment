@@ -92,9 +92,10 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Install macOS defaults
 print_padded_title "defaults - Configure Custom Keybindings"
-# Command + Shift + 0 to open menu entry `Show Writing Tools`
+# Command+Shift+0 to open menu entry `Show Writing Tools`
 defaults write -g NSUserKeyEquivalents -dict-add "Show Writing Tools" '@$0'
-# Command +X to launch kitty's quick access terminal
+# Command+Shift+X to launch kitty's quick access terminal
+# https://sw.kovidgoyal.net/kitty/kittens/quick-access-terminal/
 defaults write pbs NSServicesStatus -dict-add "net.kovidgoyal.kitty-quick-access - Quick access to kitty - quickAccessTerminal" '{"key_equivalent" = "@$x";}'
 
 print_padded_title "defaults - Kill applications"
