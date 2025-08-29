@@ -29,8 +29,6 @@ brew update
 print_padded_title "Brew - Install Packages"
 [ -f Brewfile ] || error_exit "No Brewfile is found"
 brew bundle --quiet --file=Brewfile
-# NOTE: Workaround https://github.com/mas-cli/mas/issues/724
-[ -n "${BREW_WORKAROUND_INSTALL_MAS}" ] && brew bundle --quiet --file=Brewfile.mas
 
 print_padded_title "Brew - Upgrade HEAD Formulae"
 brew outdated --fetch-HEAD

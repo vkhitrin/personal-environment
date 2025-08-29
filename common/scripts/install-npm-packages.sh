@@ -9,3 +9,6 @@ source ./scripts/common.sh
 
 print_padded_title "npm - Install Additional Software"
 "${BIN_DIR}/npm" install --global --upgrade hostile @mermaid-js/mermaid-cli
+
+print_padded_title "npx - Install Additional Software"
+"${BIN_DIR}/npx" -y mcp-remote || true
