@@ -32,3 +32,7 @@ common-configure-mise: ##Configures mise
 .PHONY: common-catppuccin-theme
 common-catppuccin-theme: ##Apply cattppuccin theme
 	@$(MAKEFILE_COMMON_DIR)/scripts/catppuccin-theme.sh
+
+.PHONY: common-fzf-scripts
+common-fzf-scripts: ##Install fzf community scripts
+	@$(MAKEFILE_COMMON_DIR)/scripts/install-fzf-scripts.sh

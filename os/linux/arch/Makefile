@@ -4,6 +4,7 @@ MAKEFILE_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 export BASE_DIR = $(MAKEFILE_DIR)
 export BIN_DIR = /usr/bin
 export ZSH_COMPLETIONS = /usr/share/zsh/site-functions/
+export ZSH_COMPLETIONS_BECOME_COMMAND = sudo
 
 help:
 	@grep -F -h "##" $(MAKEFILE_LIST) | sed -e 's/\(\:.*\#\#\)/\:\ /' | grep -F -v grep -F | sed -e 's/\\$$//' | sed -e 's/##//'
