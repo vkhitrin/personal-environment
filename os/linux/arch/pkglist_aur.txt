@@ -4,6 +4,7 @@ apple-sf-script-extension-fonts
 butler
 cromite-bin
 downgrade
+electron37-bin
 flux-bin
 gamescope-nvidia
 git-open
@@ -18,6 +19,7 @@ kubesess-bin
 mackup
 nerd-fonts-sf-mono
 obsidian-cli-git
+opencode-bin
 perl-ansicolumn
 pet-bin
 proton-ge-custom-bin
@@ -28,6 +30,7 @@ remote-desktop-manager
 sideloader-bin
 sublime-merge
 thorium-browser-bin
+updpkgsrcs
 vesktop-bin
 vial-appimage
 wine-ge-custom

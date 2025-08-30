@@ -12,6 +12,7 @@ adobe-source-han-serif-tw-fonts
 amd-ucode
 amdvlk
 atuin
+aws-cli-v2
 aws-vault
 base
 base-devel
@@ -21,6 +22,7 @@ bat-extras
 bind
 bluez-utils
 chafa
+cider
 clang
 cosmic-app-library
 cosmic-applets
