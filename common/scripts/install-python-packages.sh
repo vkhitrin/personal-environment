@@ -8,6 +8,8 @@ source ./scripts/common.sh
 [ -z "${BIN_DIR}" ] && error_exit "Environment variable 'BIN_DIR' is not defined"
 
 print_padded_title "uv - Install Additional Software"
+# NOTE: Set Python to version 3.13
+export UV_PYTHON="python3.13"
 declare -a UV_PACKAGES
 declare -a UV_HARLEQUIN_EXTRA_ARGS
 UV_PACKAGES=("chromadb==0.6.3" "vectorcode[lsp,mcp]" "posting" "git+https://github.com/whyisdifficult/jiratui")
