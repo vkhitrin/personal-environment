@@ -9,7 +9,7 @@ source ./scripts/common.sh
 
 print_padded_title "cargo - Install Additional Software"
 cargo install mise usage-cli
-cargo install --git https://github.com/vkhitrin/kdbx --branch refactor/show_sensitive_info
+cargo install --git https://github.com/daxartio/kdbx
 
 print_padded_title "cargo - Install Completions"
 mise completion zsh | ${ZSH_COMPLETIONS_BECOME_COMMAND} tee "${ZSH_COMPLETIONS}/_mise"

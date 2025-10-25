@@ -30,9 +30,11 @@ print_padded_title "Brew - Install Packages"
 [ -f Brewfile ] || error_exit "No Brewfile is found"
 brew bundle --quiet --file=Brewfile
 
-print_padded_title "Brew - Upgrade HEAD Formulae"
-brew outdated --fetch-HEAD
-brew upgrade --fetch-HEAD
+# NOTE: With brew release 4.6.18-50-g0d9b9b4, it attempts to reinstall the packages all the time, and it fails to overwrite.
+#       Revisit this in the future.
+# print_padded_title "Brew - Upgrade HEAD Formulae"
+# brew outdated --fetch-HEAD
+# brew upgrade --fetch-HEAD
 
 # print_padded_title "Brew - Start Services"
 # brew services start borders
