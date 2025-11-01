@@ -12,12 +12,13 @@ print_padded_title "uv - Install Additional Software"
 export UV_PYTHON="python3.13"
 declare -a UV_PACKAGES
 declare -a UV_HARLEQUIN_EXTRA_ARGS
-UV_PACKAGES=("chromadb==0.6.3" "vectorcode[lsp,mcp]" "posting" "git+https://github.com/whyisdifficult/jiratui")
+UV_PACKAGES=("posting" "git+https://github.com/whyisdifficult/jiratui")
 UV_HARLEQUIN_EXTRA_ARGS=("--with boto3" "--with harlequin-postgres" "--with harlequin-mysql" "--with harlequin-odbc" "--with harlequin-adbc" "--with adbc-driver-postgresql")
 for UV_PACKAGE in "${UV_PACKAGES[@]}"; do
 	"${BIN_DIR}/uv" tool install -U "${UV_PACKAGE}"
 done
 "${BIN_DIR}/uv" tool install -U harlequin ${UV_HARLEQUIN_EXTRA_ARGS[@]}
 
-print_padded_title "python - Install Additional Shell Completions"
-vectorcode --print-completion zsh | ${ZSH_COMPLETIONS_BECOME_COMMAND} tee "${ZSH_COMPLETIONS}/_vectorcode"
+# NOTE: Dropping VectorCode
+# print_padded_title "python - Install Additional Shell Completions"
+# vectorcode --print-completion zsh | ${ZSH_COMPLETIONS_BECOME_COMMAND} tee "${ZSH_COMPLETIONS}/_vectorcode"

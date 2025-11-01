@@ -32,9 +32,10 @@ brew bundle --quiet --file=Brewfile
 
 # NOTE: With brew release 4.6.18-50-g0d9b9b4, it attempts to reinstall the packages all the time, and it fails to overwrite.
 #       Revisit this in the future.
-# print_padded_title "Brew - Upgrade HEAD Formulae"
-# brew outdated --fetch-HEAD
+print_padded_title "Brew - Upgrade HEAD Formulae"
 # brew upgrade --fetch-HEAD
+# WARN: Workaround until brew is fixed
+brew outdated --fetch-HEAD | awk '{print $1}' | xargs -n1 brew upgrade --fetch-HEAD || true
 
 # print_padded_title "Brew - Start Services"
 # brew services start borders
@@ -63,6 +64,7 @@ gitlab-ci-local --completion >/opt/homebrew/share/zsh-completions/_gitlab-ci-loc
 which istioctl >/dev/null 2>/dev/null && istioctl completion zsh >/opt/homebrew/share/zsh-completions/_istioctl
 jira completion zsh >/opt/homebrew/share/zsh-completions/_jira
 op completion zsh >/opt/homebrew/share/zsh-completions/_op
+acli completion zsh >/opt/homebrew/share/zsh-completions/_acli
 # [ -f "/opt/homebrew/share/zsh-completions/_virtctl" ] || virtctl completion zsh > /opt/homebrew/share/zsh-completions/_virtctl
 print_padded_title "Brew - Notes"
 echo "Please run the following to enable completions:"
