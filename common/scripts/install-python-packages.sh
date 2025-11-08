@@ -11,9 +11,20 @@ print_padded_title "uv - Install Additional Software"
 # NOTE: Set Python to version 3.13
 export UV_PYTHON="python3.13"
 declare -a UV_PACKAGES
+declare -a UV_TEXTUAL_APPLICATIONS_PACKAGES
 declare -a UV_HARLEQUIN_EXTRA_ARGS
-UV_PACKAGES=("posting" "git+https://github.com/whyisdifficult/jiratui")
-UV_HARLEQUIN_EXTRA_ARGS=("--with boto3" "--with harlequin-postgres" "--with harlequin-mysql" "--with harlequin-odbc" "--with harlequin-adbc" "--with adbc-driver-postgresql")
+UV_TEXTUAL_APPLICATIONS_PACKAGES=("posting" "git+https://github.com/whyisdifficult/jiratui")
+UV_HARLEQUIN_EXTRA_ARGS=("--with boto3"
+	"--with harlequin-postgres"
+	"--with harlequin-mysql"
+	"--with harlequin-odbc"
+	"--with harlequin-adbc"
+	"--with adbc-driver-postgresql"
+	"--with textual-speedups"
+)
+for UV_PACKAGE in "${UV_TEXTUAL_APPLICATIONS_PACKAGES[@]}"; do
+	"${BIN_DIR}/uv" tool install -U "${UV_PACKAGE}" --with 'textual-speedups'
+done
 for UV_PACKAGE in "${UV_PACKAGES[@]}"; do
 	"${BIN_DIR}/uv" tool install -U "${UV_PACKAGE}"
 done

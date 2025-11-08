@@ -33,9 +33,9 @@ brew bundle --quiet --file=Brewfile
 # NOTE: With brew release 4.6.18-50-g0d9b9b4, it attempts to reinstall the packages all the time, and it fails to overwrite.
 #       Revisit this in the future.
 print_padded_title "Brew - Upgrade HEAD Formulae"
-# brew upgrade --fetch-HEAD
+brew upgrade --fetch-HEAD
 # WARN: Workaround until brew is fixed
-brew outdated --fetch-HEAD | awk '{print $1}' | xargs -n1 brew upgrade --fetch-HEAD || true
+# brew outdated --fetch-HEAD | awk '{print $1}' | xargs -n1 brew upgrade --fetch-HEAD || true
 
 # print_padded_title "Brew - Start Services"
 # brew services start borders
