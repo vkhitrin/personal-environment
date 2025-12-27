@@ -10,10 +10,10 @@ source ./scripts/common.sh
 print_padded_title "uv - Install Additional Software"
 # NOTE: Set Python to version 3.13
 export UV_PYTHON="python3.13"
-declare -a UV_PACKAGES
+declare -a UV_PACKAGES=()
 declare -a UV_TEXTUAL_APPLICATIONS_PACKAGES
 declare -a UV_HARLEQUIN_EXTRA_ARGS
-UV_TEXTUAL_APPLICATIONS_PACKAGES=("posting" "git+https://github.com/whyisdifficult/jiratui")
+UV_TEXTUAL_APPLICATIONS_PACKAGES=("posting" "git+https://github.com/vkhitrin/jiratui@superTUI")
 UV_HARLEQUIN_EXTRA_ARGS=("--with boto3"
 	"--with harlequin-postgres"
 	"--with harlequin-mysql"
