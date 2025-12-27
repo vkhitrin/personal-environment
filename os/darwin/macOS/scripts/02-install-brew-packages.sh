@@ -65,6 +65,7 @@ which istioctl >/dev/null 2>/dev/null && istioctl completion zsh >/opt/homebrew/
 jira completion zsh >/opt/homebrew/share/zsh-completions/_jira
 op completion zsh >/opt/homebrew/share/zsh-completions/_op
 acli completion zsh >/opt/homebrew/share/zsh-completions/_acli
+ast-grep completions zsh >/opt/homebrew/share/zsh-completions/_ast-grep
 # [ -f "/opt/homebrew/share/zsh-completions/_virtctl" ] || virtctl completion zsh > /opt/homebrew/share/zsh-completions/_virtctl
 print_padded_title "Brew - Notes"
 echo "Please run the following to enable completions:"
