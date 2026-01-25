@@ -7,11 +7,19 @@ source ./scripts/common.sh
 
 [ -z "${BIN_DIR}" ] && error_exit "Environment variable 'BIN_DIR' is not defined"
 
-print_padded_title "npm - Install Additional Software"
-"${BIN_DIR}/npm" install --global @mermaid-js/mermaid-cli@latest \
-	confluence-cli@latest \
-	semantic-memory@latest
+npm install -g firecrawl-cli@latest
 
-print_padded_title "bun - Install Additional Software"
-"${BIN_DIR}/bun" install --global opencode-swarm-plugin@latest \
-	git@github.com:shuv1337/oc-manager
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    print_padded_title "macOS - Workaround"
+    FIRECRAWL_CONFIG_DIR="${HOME}/.config/firecrawl-cli"
+    FIRECRAWL_MACOS_CONFIG_DIR="${HOME}/Library/Application Support/firecrawl-cli"
+
+    mkdir -p "${FIRECRAWL_CONFIG_DIR}"
+
+    if [[ -e "${FIRECRAWL_MACOS_CONFIG_DIR}" && ! -L "${FIRECRAWL_MACOS_CONFIG_DIR}" ]]; then
+        cp -a "${FIRECRAWL_MACOS_CONFIG_DIR}/." "${FIRECRAWL_CONFIG_DIR}/"
+        rm -rf "${FIRECRAWL_MACOS_CONFIG_DIR}"
+    fi
+
+    ln -sfn "${FIRECRAWL_CONFIG_DIR}" "${FIRECRAWL_MACOS_CONFIG_DIR}"
+fi

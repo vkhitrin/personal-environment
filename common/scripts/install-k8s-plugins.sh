@@ -7,25 +7,44 @@ source ./scripts/common.sh
 
 [ -z "${BIN_DIR}" ] && error_exit "Environment variable 'BIN_DIR' is not defined"
 
+function helm_plugin_installed {
+    "${BIN_DIR}/helm" plugin list | grep "^$1[[:space:]]" >/dev/null 2>/dev/null
+}
+
+function helm_plugin_install_or_update {
+    local name="$1"
+    local url="$2"
+
+    if helm_plugin_installed "${name}"; then
+        if ! "${BIN_DIR}/helm" plugin update "${name}"; then
+            echo "Failed to update Helm plugin '${name}', reinstalling..." >&2
+            "${BIN_DIR}/helm" plugin uninstall "${name}"
+            "${BIN_DIR}/helm" plugin install "${url}"
+        fi
+    else
+        "${BIN_DIR}/helm" plugin install "${url}"
+    fi
+}
+
 # Kubernetes krew plugins
-print_padded_title "krew - Install Kubernetes CLI Extensions Using krew"
+print_padded_title "krew - Install/Upgrade Kubernetes CLI Extensions Using krew"
 if [[ $(which kubectl-krew) ]] 2>/dev/null; then
+    "${BIN_DIR}/kubectl-krew" update
     "${BIN_DIR}/kubectl-krew" install browse-pvc cert-manager ctr deprecations dup get-all graph history images node-admin node-logs node-restart node-shell nodepools resource-capacity restart sick-pods unlimited view-secret viewnode tree blame df-pv
+    "${BIN_DIR}/kubectl-krew" upgrade
 fi
 
 # helm plugins
-print_padded_title "helm - Install Helm Plugins"
+print_padded_title "helm - Install/Upgrade Helm Plugins"
 if [[ $(which helm) ]] 2>/dev/null; then
-    "${BIN_DIR}/helm" plugin list | grep diff >/dev/null 2>/dev/null || "${BIN_DIR}/helm" plugin install https://github.com/databus23/helm-diff
+    helm_plugin_install_or_update diff https://github.com/databus23/helm-diff
     "${BIN_DIR}/helm" diff completion zsh | ${ZSH_COMPLETIONS_BECOME_COMMAND} tee "${ZSH_COMPLETIONS}/_helm_diff"
-    "${BIN_DIR}/helm" plugin list | grep cm-push >/dev/null 2>/dev/null || "${BIN_DIR}/helm" plugin install https://github.com/chartmuseum/helm-push
-    "${BIN_DIR}/helm" plugin list | grep drift >/dev/null 2>/dev/null || "${BIN_DIR}/helm" plugin install https://github.com/nikhilsbhat/helm-drift
+
+    helm_plugin_install_or_update cm-push https://github.com/chartmuseum/helm-push
+
+    helm_plugin_install_or_update drift https://github.com/nikhilsbhat/helm-drift
     "${BIN_DIR}/helm" drift completion zsh | ${ZSH_COMPLETIONS_BECOME_COMMAND} tee "${ZSH_COMPLETIONS}/_helm_drift"
-    "${BIN_DIR}/helm" plugin list | grep schema >/dev/null 2>/dev/null || "${BIN_DIR}/helm" plugin install https://github.com/losisin/helm-values-schema-json.git
-    "${BIN_DIR}/helm" plugin list | grep unittest >/dev/null 2>/dev/null || "${BIN_DIR}/helm" plugin install https://github.com/helm-unittest/helm-unittest
-    "${BIN_DIR}/helm" plugin update diff
-    "${BIN_DIR}/helm" plugin update cm-push
-    "${BIN_DIR}/helm" plugin update drift
-    "${BIN_DIR}/helm" plugin update schema
-    "${BIN_DIR}/helm" plugin update unittest
+
+    helm_plugin_install_or_update schema https://github.com/losisin/helm-values-schema-json.git
+    helm_plugin_install_or_update unittest https://github.com/helm-unittest/helm-unittest
 fi

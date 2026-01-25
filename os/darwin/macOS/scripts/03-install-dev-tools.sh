@@ -9,7 +9,8 @@ print_padded_title "rustup - Link brew rust"
 rustup toolchain link system "$(brew --prefix rust)"
 
 print_padded_title "rustup - Bootstrap"
-rustup-init -y -q --no-modify-path
+rustup toolchain install stable
+rustup default stable
 
 print_padded_title "rustup - Update"
 rustup update
