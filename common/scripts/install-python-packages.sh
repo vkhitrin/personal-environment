@@ -13,23 +13,22 @@ export UV_PYTHON="python3.13"
 declare -a UV_PACKAGES=()
 declare -a UV_TEXTUAL_APPLICATIONS_PACKAGES
 declare -a UV_HARLEQUIN_EXTRA_ARGS
-UV_TEXTUAL_APPLICATIONS_PACKAGES=("posting" "git+https://github.com/vkhitrin/jiratui@superTUI")
+UV_TEXTUAL_APPLICATIONS_PACKAGES=("posting"
+    "git+https://github.com/vkhitrin/gojeera@main"
+    "git+https://github.com/antoniorodr/cronboard@main"
+)
 UV_HARLEQUIN_EXTRA_ARGS=("--with boto3"
-	"--with harlequin-postgres"
-	"--with harlequin-mysql"
-	"--with harlequin-odbc"
-	"--with harlequin-adbc"
-	"--with adbc-driver-postgresql"
-	"--with textual-speedups"
+    "--with harlequin-postgres"
+    "--with harlequin-mysql"
+    "--with harlequin-odbc"
+    "--with harlequin-adbc"
+    "--with adbc-driver-postgresql"
+    "--with textual-speedups"
 )
 for UV_PACKAGE in "${UV_TEXTUAL_APPLICATIONS_PACKAGES[@]}"; do
-	"${BIN_DIR}/uv" tool install -U "${UV_PACKAGE}" --with 'textual-speedups'
+    "${BIN_DIR}/uv" tool install -U "${UV_PACKAGE}" --with 'textual-speedups'
 done
 for UV_PACKAGE in "${UV_PACKAGES[@]}"; do
-	"${BIN_DIR}/uv" tool install -U "${UV_PACKAGE}"
+    "${BIN_DIR}/uv" tool install -U "${UV_PACKAGE}"
 done
 "${BIN_DIR}/uv" tool install -U harlequin ${UV_HARLEQUIN_EXTRA_ARGS[@]}
-
-# NOTE: Dropping VectorCode
-# print_padded_title "python - Install Additional Shell Completions"
-# vectorcode --print-completion zsh | ${ZSH_COMPLETIONS_BECOME_COMMAND} tee "${ZSH_COMPLETIONS}/_vectorcode"

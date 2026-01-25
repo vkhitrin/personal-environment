@@ -61,10 +61,12 @@ defaults write com.apple.menuextra.clock "ShowDayOfWeek" -bool "true"
 defaults write com.apple.menuextra.clock "ShowSeconds" -bool "true"
 defaults write com.apple.screencapture "include-date" 0
 defaults write com.apple.screencapture disable-shadow -bool true
-defaults write com.apple.screencapture location "$HOME/Documents/Screenshots"
+defaults write com.apple.screencapture location "${HOME}/Documents/Screenshots"
 defaults write com.apple.screencapture name "screencapture"
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
+defaults write com.apple.finder \
+    StandardViewSettings:ExtendedListViewSettingsV2:calculateAllSizes -bool true
 
 # NOTE: Safari defaults did not work on clean install of macOS Sequoia
 # defaults write com.apple.Safari AutoFillCreditCardData -bool false

@@ -10,8 +10,9 @@ source ./scripts/common.sh
 print_padded_title "npm - Install Additional Software"
 "${BIN_DIR}/npm" install --global @mermaid-js/mermaid-cli@latest \
 	confluence-cli@latest \
-	semantic-memory@latest
+	semantic-memory@latest \
+    @rama_nigg/open-cursor@latest
 
 print_padded_title "bun - Install Additional Software"
-"${BIN_DIR}/bun" install --global opencode-swarm-plugin@latest \
+"${BIN_DIR}/bun" install --global \
 	git@github.com:shuv1337/oc-manager
