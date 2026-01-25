@@ -61,10 +61,26 @@ defaults write com.apple.menuextra.clock "ShowDayOfWeek" -bool "true"
 defaults write com.apple.menuextra.clock "ShowSeconds" -bool "true"
 defaults write com.apple.screencapture "include-date" 0
 defaults write com.apple.screencapture disable-shadow -bool true
-defaults write com.apple.screencapture location "$HOME/Documents/Screenshots"
+defaults write com.apple.screencapture location "${HOME}/Documents/Screenshots"
 defaults write com.apple.screencapture name "screencapture"
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
+defaults write com.apple.finder \
+    StandardViewSettings:ExtendedListViewSettingsV2:calculateAllSizes -bool true
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSGlassDiffusionSetting -bool true
+defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
+
+defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
+defaults write NSGlobalDomain com.apple.sound.beep.flash -bool false
+defaults write NSGlobalDomain com.apple.sound.beep.volume -bool false
+defaults write NSGlobalDomain com.apple.sound.uiaudio.enabled -bool false
+defaults write NSGlobalDomain com.apple.springing.enabled -bool true
+defaults write NSGlobalDomain com.apple.trackpad.forceClick -bool true
+
+defaults -currentHost write -globalDomain NSStatusItemSpacing -int 2
+defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 2
 
 # NOTE: Safari defaults did not work on clean install of macOS Sequoia
 # defaults write com.apple.Safari AutoFillCreditCardData -bool false
@@ -96,7 +112,21 @@ print_padded_title "defaults - Configure Custom Keybindings"
 defaults write -g NSUserKeyEquivalents -dict-add "Show Writing Tools" '@$0'
 # Command+Shift+X to launch kitty's quick access terminal
 # https://sw.kovidgoyal.net/kitty/kittens/quick-access-terminal/
-defaults write pbs NSServicesStatus -dict-add "net.kovidgoyal.kitty-quick-access - Quick access to kitty - quickAccessTerminal" '{"key_equivalent" = "@$x";}'
+if [[ -d /Applications/kitty.app ]]; then
+    /Applications/kitty.app/Contents/MacOS/kitten quick-access-terminal true
+    defaults write pbs NSServicesStatus -dict-add "net.kovidgoyal.kitty-quick-access - Quick access to kitty - quickAccessTerminal" '{"key_equivalent" = "@$x";}'
+fi
+
+# Disable spotlight and use Raycast instead
+# if [[ -d /Applications/Raycast.app ]]; then
+#     # Disable indexing
+#     sudo mdutil -da
+#     sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist || true
+#     defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 '{
+#       enabled = 0;
+#     }'
+#     killall cfprefsd
+# fi
 
 print_padded_title "defaults - Kill applications"
 killall -q SystemUIServer || true

@@ -6,9 +6,6 @@ source ./scripts/common.sh
 
 [ -z "${NODE_MODULES_DIR}" ] && error_exit "Environment variable 'NODE_MODULES_DIR' is not defined"
 
-print_padded_title "ubs - Install From Script"
-curl -fsSL "https://raw.githubusercontent.com/Dicklesworthstone/ultimate_bug_scanner/master/install.sh?$(date +%s)" |
-	bash -s -- --easy-mode || true
 print_padded_title "cass - Install From Script"
 curl -fsSL https://raw.githubusercontent.com/Dicklesworthstone/coding_agent_session_search/main/install.sh |
 	bash -s -- --easy-mode --verify
