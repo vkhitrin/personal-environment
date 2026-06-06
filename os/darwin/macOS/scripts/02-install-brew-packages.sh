@@ -28,14 +28,17 @@ brew update
 
 print_padded_title "Brew - Install Packages"
 [ -f Brewfile ] || error_exit "No Brewfile is found"
-brew bundle --quiet --file=Brewfile --upgrade --cleanup --force
+brew bundle --quiet --file=Brewfile --upgrade --force
 # print_padded_title "Brew - Upgrade HEAD Formulae"
-brew upgrade --fetch-HEAD
+# brew upgrade --fetch-HEAD
 
 # Soft links
 print_padded_title "Brew - Soft Links"
 ln -sf /opt/homebrew/bin/yt-dlp /opt/homebrew/bin/youtube-dl
 ln -sf /opt/homebrew/bin/tofu "${HOME}/.local/bin/terraform"
+ln -sf "$(brew --prefix llvm)/bin/clang-format" "${HOME}/.local/bin/clang-format"
+ln -sf "$(brew --prefix llvm)/bin/clang-tidy" "${HOME}/.local/bin/clang-tidy"
+ln -sf "$(brew --prefix llvm)/bin/clang-apply-replacements" "${HOME}/.local/bin/clang-apply-replacements"
 
 # Cleanup brew
 print_padded_title "Brew - Cleanup"

@@ -12,4 +12,3 @@ if [ ! -d "$HOME/Projects/Automation/Setup/dotfiles" ]; then
     git clone --separate-git-dir="$HOME/Projects/Automation/dotfiles" http://github.com/vkhitrin/dotfiles /tmp/dotfiles
     rsync --recursive --verbose --exclude "README.md" --exclude ".git" /tmp/dotfiles/ "$HOME/" && rm -rf /tmp/dotfiles
 fi
-

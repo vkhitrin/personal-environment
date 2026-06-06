@@ -1,8 +1,8 @@
 pkgname=kubesess-bin
-pkgver=2.0.2
+pkgver=3.0.0
 pkgrel=1
 pkgdesc='Kubectl plugin managing sessions'
-arch=('x86_64' 'aarch64')
+arch=('x86_64')
 url=https://github.com/Ramilito/kubesess
 license=(MIT)
 makedepends=(
@@ -13,9 +13,7 @@ source=(
 )
 
 if [[ $CARCH == "x86_64" ]]; then
-    sha256sums=('81d29a76c4b02f4d5ec3aa448f5bbebaff0bc44b45adf570bfad9391a81cbc42')
-elif [[ $CARCH == "aarch64" ]]; then
-    sha256sums=('80362fd6ecc94fbf8d1f9679fa56241865b971dc4c9077c0cadedc91928d0f9fd')
+sha256sums=('54df16d19eb3d76970b122918989775c9c77601e33d2f80bdfe5bc2c498cde18')
 fi
 
 package() {

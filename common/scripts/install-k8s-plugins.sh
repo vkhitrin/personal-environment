@@ -7,6 +7,8 @@ source ./scripts/common.sh
 
 [ -z "${BIN_DIR}" ] && error_exit "Environment variable 'BIN_DIR' is not defined"
 
+HELM_PLUGIN_VERIFY="${HELM_PLUGIN_VERIFY:-false}"
+
 function helm_plugin_installed {
     "${BIN_DIR}/helm" plugin list | grep "^$1[[:space:]]" >/dev/null 2>/dev/null
 }
@@ -19,10 +21,10 @@ function helm_plugin_install_or_update {
         if ! "${BIN_DIR}/helm" plugin update "${name}"; then
             echo "Failed to update Helm plugin '${name}', reinstalling..." >&2
             "${BIN_DIR}/helm" plugin uninstall "${name}"
-            "${BIN_DIR}/helm" plugin install "${url}"
+            "${BIN_DIR}/helm" plugin install "${url}" --verify="${HELM_PLUGIN_VERIFY}"
         fi
     else
-        "${BIN_DIR}/helm" plugin install "${url}"
+        "${BIN_DIR}/helm" plugin install "${url}" --verify="${HELM_PLUGIN_VERIFY}"
     fi
 }
 

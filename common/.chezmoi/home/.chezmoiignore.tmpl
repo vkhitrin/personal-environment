@@ -1,0 +1,37 @@
+# Kubernetes local state
+.kube/cache/**
+.kube/http-cache/**
+.kube/kubesess/**
+.kube/.colima/**
+
+# Pi local state
+.pi/archive.db
+.pi/.pi/**
+.pi/agent/sessions/**
+.pi/agent/pi-crash.log
+.pi/node_modules/**
+.pi/package-lock.json
+.pi/agent/npm/node_modules/**
+.pi/agent/npm/package-lock.json
+
+# k9s local state
+.config/k9s/benchmarks/**
+.config/k9s/clusters/**
+.config/k9s/screen-dumps/**
+
+# macOS local metadata
+.DS_Store
+**/.DS_Store
+
+{{- if ne .chezmoi.os "darwin" }}
+Library/**
+{{- end }}
+
+{{- if ne .chezmoi.os "linux" }}
+.config/cosmic/**
+.config/kitty/linux.conf
+.mcli/**
+.config/mcphub/**
+.config/ra-multiplex/**
+.config/systemd/**
+{{- end }}

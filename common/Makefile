@@ -29,6 +29,18 @@ common-install-gh-extensions: ##Installs gh extensions
 common-configure-mise: ##Configures mise
 	@$(MAKEFILE_COMMON_DIR)/scripts/configure-mise.sh
 
+.PHONY: common-ensure-chezmoi-config
+common-ensure-chezmoi-config: ##Ensures chezmoi config
+	@$(MAKEFILE_COMMON_DIR)/scripts/ensure-chezmoi-config.sh
+
+.PHONY: common-apply-chezmoi-config
+common-apply-chezmoi-config: ##Applies chezmoi config
+	@$(MAKEFILE_COMMON_DIR)/scripts/apply-chezmoi-config.sh "$(CURDIR)"
+
+.PHONY: common-backup-chezmoi-config
+common-backup-chezmoi-config: ##Backs up chezmoi-managed config
+	@$(MAKEFILE_COMMON_DIR)/scripts/backup-chezmoi-config.sh
+
 .PHONY: common-catppuccin-theme
 common-catppuccin-theme: ##Apply cattppuccin theme
 	@$(MAKEFILE_COMMON_DIR)/scripts/catppuccin-theme.sh
