@@ -5,7 +5,7 @@ MAKEFILE_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 export BASE_DIR = $(MAKEFILE_DIR)
 export BIN_DIR = $(shell brew --prefix)/bin
 export NODE_MODULES_DIR = $(shell brew --prefix)/lib/node_modules
-export ZSH_COMPLETIONS = $(shell brew --prefix)/share/zsh-completions
+export ZSH_COMPLETIONS = $(HOME)/.local/share/zsh/site-functions
 
 .PHONY: help
 help:
@@ -15,17 +15,17 @@ help:
 create-directories: ##Installs directories
 	@$(MAKEFILE_DIR)/scripts/00-create-directories.sh
 
-.PHONY: set-defaults
-set-defaults: ##Sets macOS defaults
-	@$(MAKEFILE_DIR)/scripts/01-set-defaults.sh
-
 .PHONY: install-brew-packages
 install-brew-packages: ##Installs brew packages
-	@$(MAKEFILE_DIR)/scripts/02-install-brew-packages.sh
+	@$(MAKEFILE_DIR)/scripts/01-install-brew-packages.sh
 
 .PHONY: install-dev-tools
 install-dev-tools: ##Installs dev tools
-	@$(MAKEFILE_DIR)/scripts/03-install-dev-tools.sh
+	@$(MAKEFILE_DIR)/scripts/02-install-dev-tools.sh
+
+.PHONY: set-defaults
+set-defaults: ##Sets macOS defaults
+	@$(MAKEFILE_DIR)/scripts/03-set-defaults.sh
 
 .PHONY: fetch-dotfiles
 fetch-dotfiles: ##Fetch dotfiles
@@ -66,4 +66,4 @@ dump-brew-packages: ##Dumps brew/mas packages into Brewfile
 	@$(MAKEFILE_DIR)/scripts/99-dump-brew-packages.sh > ./Brewfile
 
 .PHONY: bootstrap-macos-environment
-bootstrap-macos-environment: create-directories install-brew-packages install-dev-tools set-defaults common-install-python-packages common-install-npm-packages common-install-cargo-packages common-install-tmux-tpm common-install-k8s-plugins common-install-gh-extensions common-configure-mise common-catppuccin-theme fetch-dotfiles restore-config private-customizations install-launchagents customize-jupyter-env customize-apple-virtualization-configuration ##Bootstraps the macOS environment
+bootstrap-macos-environment: create-directories install-brew-packages install-dev-tools set-defaults common-install-python-packages common-install-node-packages common-install-cargo-packages common-install-tmux-tpm common-install-k8s-plugins common-install-gh-extensions common-configure-mise common-catppuccin-theme fetch-dotfiles restore-config private-customizations install-launchagents customize-jupyter-env customize-apple-virtualization-configuration ##Bootstraps the macOS environment
