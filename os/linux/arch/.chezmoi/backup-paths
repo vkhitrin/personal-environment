@@ -1,0 +1,7 @@
+# Arch Linux-only configuration trees where backup should discover new files.
+.config/cosmic
+.config/kitty/linux.conf
+.config/mcphub
+.config/ra-multiplex
+.config/systemd
+.mcli/config.json

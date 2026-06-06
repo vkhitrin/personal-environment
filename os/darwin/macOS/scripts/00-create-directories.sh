@@ -21,4 +21,4 @@ print_padded_title "Directories - Projects"
 mkdir -p "${HOME}/Projects/Personal" "${HOME}/Projects/Work" "${HOME}/Documents/Screenshots"
 
 print_padded_title "Directories - .local"
-mkdir -p "${HOME}/.local/bin"
+mkdir -p "${HOME}/.local/bin" "${HOME}/.local/share/zsh/site-functions"
