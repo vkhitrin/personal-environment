@@ -4,8 +4,11 @@ set -eo pipefail
 [ -n "${COMMON_BASE_DIR}" ] && cd "${COMMON_BASE_DIR}"
 
 source ./scripts/common.sh
+source ./scripts/zsh-completions.sh
 
 [ -z "${BIN_DIR}" ] && error_exit "Environment variable 'BIN_DIR' is not defined"
+
+HELM_PLUGIN_VERIFY="${HELM_PLUGIN_VERIFY:-false}"
 
 function helm_plugin_installed {
     "${BIN_DIR}/helm" plugin list | grep "^$1[[:space:]]" >/dev/null 2>/dev/null
@@ -19,10 +22,10 @@ function helm_plugin_install_or_update {
         if ! "${BIN_DIR}/helm" plugin update "${name}"; then
             echo "Failed to update Helm plugin '${name}', reinstalling..." >&2
             "${BIN_DIR}/helm" plugin uninstall "${name}"
-            "${BIN_DIR}/helm" plugin install "${url}"
+            "${BIN_DIR}/helm" plugin install "${url}" --verify="${HELM_PLUGIN_VERIFY}"
         fi
     else
-        "${BIN_DIR}/helm" plugin install "${url}"
+        "${BIN_DIR}/helm" plugin install "${url}" --verify="${HELM_PLUGIN_VERIFY}"
     fi
 }
 
@@ -38,12 +41,12 @@ fi
 print_padded_title "helm - Install/Upgrade Helm Plugins"
 if [[ $(which helm) ]] 2>/dev/null; then
     helm_plugin_install_or_update diff https://github.com/databus23/helm-diff
-    "${BIN_DIR}/helm" diff completion zsh | ${ZSH_COMPLETIONS_BECOME_COMMAND} tee "${ZSH_COMPLETIONS}/_helm_diff"
+    install_zsh_completion helm_diff "${BIN_DIR}/helm" diff completion zsh
 
     helm_plugin_install_or_update cm-push https://github.com/chartmuseum/helm-push
 
     helm_plugin_install_or_update drift https://github.com/nikhilsbhat/helm-drift
-    "${BIN_DIR}/helm" drift completion zsh | ${ZSH_COMPLETIONS_BECOME_COMMAND} tee "${ZSH_COMPLETIONS}/_helm_drift"
+    install_zsh_completion helm_drift "${BIN_DIR}/helm" drift completion zsh
 
     helm_plugin_install_or_update schema https://github.com/losisin/helm-values-schema-json.git
     helm_plugin_install_or_update unittest https://github.com/helm-unittest/helm-unittest

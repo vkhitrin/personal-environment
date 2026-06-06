@@ -19,7 +19,7 @@ install-packages: ##Installs pacman packages
 fetch-dotfiles: ##Fetch dotfiles
 	@$(MAKEFILE_DIR)/scripts/02-fetch-dotfiles.sh
 
-restore-config: #Restores config
+restore-config: ##Restores config
 	@$(MAKEFILE_DIR)/scripts/03-restore.config.sh
 
 private-customizations: ##Private customizations

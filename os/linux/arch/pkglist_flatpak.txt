@@ -1,4 +1,3 @@
-com.jeffser.Alpaca
 de.schmidhuberj.tubefeeder
 it.mijorus.gearlever
 org.flatpak.Builder

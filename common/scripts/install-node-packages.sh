@@ -7,7 +7,12 @@ source ./scripts/common.sh
 
 [ -z "${BIN_DIR}" ] && error_exit "Environment variable 'BIN_DIR' is not defined"
 
-npm install -g firecrawl-cli@latest
+if [[ "$(uname -s)" != "Darwin" ]]; then
+    export NPM_CONFIG_PREFIX="${NPM_CONFIG_PREFIX:-${HOME}/.local}"
+    mkdir -p "${NPM_CONFIG_PREFIX}/bin"
+fi
+
+"${BIN_DIR}/npm" install -g firecrawl-cli@latest @earendil-works/pi-coding-agent@latest
 
 if [[ "$(uname -s)" == "Darwin" ]]; then
     print_padded_title "macOS - Workaround"
