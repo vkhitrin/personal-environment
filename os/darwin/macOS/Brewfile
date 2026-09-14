@@ -23,6 +23,7 @@ tap "neiii/bridle", trusted: true
 tap "norwoodj/tap", trusted: true
 tap "osx-cross/avr", trusted: true
 tap "oven-sh/bun", trusted: true
+tap "petere/postgresql", trusted: true
 tap "qmk/qmk", trusted: true
 tap "quietscher/qraqula", "https://github.com/Quietscher/homebrew-qraqula", trusted: true
 tap "socktainer/tap", trusted: true
@@ -34,6 +35,8 @@ tap "yakitrak/yakitrak", trusted: true
 brew "abseil"
 # Run your GitHub Actions locally
 brew "act"
+# Generic-purpose lossless compression algorithm by Google
+brew "brotli"
 # Library for manipulating PNG images
 brew "libpng"
 # Software library to render fonts
@@ -98,8 +101,6 @@ brew "librsvg"
 brew "adwaita-icon-theme"
 # Simple, modern, secure file encryption
 brew "age"
-# Command-line tool for Allure TestOps
-brew "allurectl"
 # Perceptual video quality assessment based on multi-method fusion
 brew "libvmaf"
 # Codec library for encoding and decoding AV1 video streams
@@ -110,8 +111,6 @@ brew "appstream"
 brew "apr"
 # Mozilla CA certificate store
 brew "ca-certificates"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@3"
 # Companion library to apr, the Apache Portable Runtime library
 brew "apr-util"
 # GitOps Continuous Delivery for Kubernetes
@@ -128,6 +127,8 @@ brew "docbook"
 brew "icu4c@77"
 # Library for decimal floating point arithmetic
 brew "mpdecimal"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # Library for command-line editing
 brew "readline"
 # Interpreted, interactive, object-oriented programming language
@@ -198,8 +199,6 @@ brew "beads"
 brew "binutils"
 # Parser generator
 brew "bison"
-# Generic-purpose lossless compression algorithm by Google
-brew "brotli"
 # Concurrent, cache-efficient, and Dockerfile-agnostic builder toolkit
 brew "buildkit"
 # Translates human-readable Butane Configs into machine-readable Ignition Configs
@@ -302,6 +301,8 @@ brew "docbook-xsl"
 brew "docker-buildx"
 # Isolated development environments using Docker
 brew "docker-compose"
+# Docker Credential Helper for Amazon ECR
+brew "docker-credential-helper-ecr"
 # Text processing system for reStructuredText
 brew "docutils"
 # GNU database manager
@@ -470,10 +471,6 @@ brew "gitlab-ci-local"
 brew "glab"
 # GSettings schemas for desktop components
 brew "gsettings-desktop-schemas"
-# Asynchronous event library
-brew "libevent"
-# Validating, recursive, caching DNS resolver
-brew "unbound"
 # Network related modules for glib
 brew "glib-networking"
 # Render markdown on the CLI
@@ -554,6 +551,10 @@ brew "srtp"
 brew "taglib"
 # Development framework for multimedia applications
 brew "gstreamer"
+# Asynchronous event library
+brew "libevent"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
 # VNC viewer widget for GTK
 brew "gtk-vnc"
 # Text view with syntax, undo/redo, and text marks
@@ -657,7 +658,7 @@ brew "libpeas"
 # Library for Apple Binary- and XML-Property Lists
 brew "libplist"
 # Postgres C API library
-brew "libpq", link: true
+brew "libpq"
 # X.Org: pthread-stubs.pc
 brew "libpthread-stubs"
 # Library for reading RAW files from digital photo cameras
@@ -760,6 +761,10 @@ brew "protobuf"
 brew "openapi-generator"
 # TUI to list, browse and run APIs defined with openapi spec
 brew "openapi-tui"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# AI coding agent, built for the terminal
+brew "opencode"
 # Development kit for the Java programming language
 brew "openjdk@11"
 # Development kit for the Java programming language
@@ -804,10 +809,10 @@ brew "pngcrush"
 brew "pngpaste"
 # PNG image optimizing utility
 brew "pngquant"
+# Fast, disk space efficient package manager
+brew "pnpm"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
-# Object-relational database system
-brew "postgresql@18"
 # Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
 # Fast Git hook manager written in Rust, drop-in alternative to pre-commit
@@ -842,8 +847,6 @@ brew "rclone"
 brew "regclient"
 # Perl-powered file rename script with many helpful built-ins
 brew "rename"
-# Search tool like grep and The Silver Searcher
-brew "ripgrep"
 # Readline wrapper: adds readline support to tools that lack it
 brew "rlwrap"
 # Safe, concurrent, practical language
@@ -979,14 +982,12 @@ brew "christosgalano/christosgalano/bicep-docs"
 brew "coralogix/tap/cx", trusted: true
 # A beautiful, snappy, and highly interactive tool for exploring diffs without leaving your terminal.
 brew "darrenburns/homebrew/dv"
-# Comprehensive code analysis tool for finding bugs and security issues
+# Ultimate Bug Scanner meta-runner
 brew "dicklesworthstone/tap/ubs", trusted: true
 # Official CLI for the Floci local AWS emulator
 brew "floci-io/floci/floci", trusted: true
 # Create a spritesheet from a set of SVG images
 brew "flother/taps/spreet"
-# TUI Client for Temporal
-brew "galaxy-io/tap/tempo", trusted: true
 # Vault
 brew "hashicorp/tap/vault", trusted: true
 # Terminal UI for AWS
@@ -1003,16 +1004,22 @@ brew "lemoony/tap/snipkit"
 brew "neiii/bridle/bridle"
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun", trusted: true
+# PostgreSQL database-cluster manager
+brew "petere/postgresql/postgresql-common"
+# Relational database management system
+brew "petere/postgresql/postgresql@19", link: true
 # All-in-one TUI GraphQL client
 brew "quietscher/qraqula/qla"
 # Sourcegraph CLI
-brew "sourcegraph/src-cli/src-cli"
+brew "sourcegraph/src-cli/src-cli", trusted: true
+# Command-line tool for Allure TestOps
+brew "vkhitrin/tap/allurectl", trusted: true
 # ANSI sequence aware column command
 brew "vkhitrin/tap/ansicolumn"
 # CLI to manage Docker Hardened Images
 brew "vkhitrin/tap/dhictl"
 # Command-line client for Docker
-brew "vkhitrin/tap/docker-cli"
+brew "vkhitrin/tap/docker-cli", trusted: true
 # Open git remote from a terminal
 brew "vkhitrin/tap/git-open-helper", args: ["HEAD"], trusted: true
 # gitlab-ci lint tool for validating .gitlab-ci.yml using Gitlab API
@@ -1023,6 +1030,8 @@ brew "vkhitrin/tap/helm-docs@0", args: ["HEAD"], trusted: true
 brew "vkhitrin/tap/lua@51", link: true
 # Blingful character graphics/TUI library
 brew "vkhitrin/tap/notcurses-tmux"
+# Static code analysis engine to find security issues in code
+brew "vkhitrin/tap/opengrep", trusted: true
 # Detect duplicate code across large codebases
 brew "vkhitrin/tap/simian"
 brew "yakitrak/yakitrak/notesmd-cli", trusted: true
@@ -1086,6 +1095,8 @@ cask "sourcemeta/apps/jsonschema", trusted: true
 cask "kitty"
 # Free and open-source painting and sketching program
 cask "krita"
+# Neovim Client
+cask "neovide-app"
 # Swift project which can post macOS alert or banner notifications
 cask "vkhitrin/tap/notifier", trusted: true
 # Knowledge base that works on top of a local folder of plain text Markdown files

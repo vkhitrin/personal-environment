@@ -91,7 +91,6 @@ install_brew_zsh_completion gitlab-ci-local gitlab-ci-local --completion
 command -v istioctl >/dev/null 2>&1 \
     && install_brew_zsh_completion istioctl istioctl completion zsh
 install_brew_zsh_completion jira jira completion zsh
-install_brew_zsh_completion acli acli completion zsh
 install_brew_zsh_completion ast-grep ast-grep completions zsh
 install_brew_zsh_completion codex codex completion zsh
 install_brew_zsh_completion deck deck completion zsh

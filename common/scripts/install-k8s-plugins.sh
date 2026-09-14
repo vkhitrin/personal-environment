@@ -48,6 +48,6 @@ if [[ $(which helm) ]] 2>/dev/null; then
     helm_plugin_install_or_update drift https://github.com/nikhilsbhat/helm-drift
     install_zsh_completion helm_drift "${BIN_DIR}/helm" drift completion zsh
 
-    helm_plugin_install_or_update schema https://github.com/losisin/helm-values-schema-json.git
+    helm_plugin_install_or_update schema https://github.com/dadav/helm-schema
     helm_plugin_install_or_update unittest https://github.com/helm-unittest/helm-unittest
 fi
