@@ -23,6 +23,7 @@ tap "neiii/bridle", trusted: true
 tap "norwoodj/tap", trusted: true
 tap "osx-cross/avr", trusted: true
 tap "oven-sh/bun", trusted: true
+tap "petere/postgresql", trusted: true
 tap "qmk/qmk", trusted: true
 tap "quietscher/qraqula", "https://github.com/Quietscher/homebrew-qraqula", trusted: true
 tap "socktainer/tap", trusted: true
@@ -98,8 +99,6 @@ brew "librsvg"
 brew "adwaita-icon-theme"
 # Simple, modern, secure file encryption
 brew "age"
-# Command-line tool for Allure TestOps
-brew "allurectl"
 # Perceptual video quality assessment based on multi-method fusion
 brew "libvmaf"
 # Codec library for encoding and decoding AV1 video streams
@@ -302,6 +301,8 @@ brew "docbook-xsl"
 brew "docker-buildx"
 # Isolated development environments using Docker
 brew "docker-compose"
+# Docker Credential Helper for Amazon ECR
+brew "docker-credential-helper-ecr"
 # Text processing system for reStructuredText
 brew "docutils"
 # GNU database manager
@@ -1006,13 +1007,15 @@ brew "oven-sh/bun/bun", trusted: true
 # All-in-one TUI GraphQL client
 brew "quietscher/qraqula/qla"
 # Sourcegraph CLI
-brew "sourcegraph/src-cli/src-cli"
+brew "sourcegraph/src-cli/src-cli", trusted: true
+# Command-line tool for Allure TestOps
+brew "vkhitrin/tap/allurectl", trusted: true
 # ANSI sequence aware column command
 brew "vkhitrin/tap/ansicolumn"
 # CLI to manage Docker Hardened Images
 brew "vkhitrin/tap/dhictl"
 # Command-line client for Docker
-brew "vkhitrin/tap/docker-cli"
+brew "vkhitrin/tap/docker-cli", trusted: true
 # Open git remote from a terminal
 brew "vkhitrin/tap/git-open-helper", args: ["HEAD"], trusted: true
 # gitlab-ci lint tool for validating .gitlab-ci.yml using Gitlab API
@@ -1023,6 +1026,8 @@ brew "vkhitrin/tap/helm-docs@0", args: ["HEAD"], trusted: true
 brew "vkhitrin/tap/lua@51", link: true
 # Blingful character graphics/TUI library
 brew "vkhitrin/tap/notcurses-tmux"
+# Static code analysis engine to find security issues in code
+brew "vkhitrin/tap/opengrep", trusted: true
 # Detect duplicate code across large codebases
 brew "vkhitrin/tap/simian"
 brew "yakitrak/yakitrak/notesmd-cli", trusted: true
